@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="assets/css/style-generalx.css" />
+    <script
+      src="https://kit.fontawesome.com/b64477248f.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- Fuente personalizada -->
+    <style>
+      @font-face {
+        font-family: "Unispace";
+        src: url("assets/fonts/unispace_bd.ttf") format("truetype");
+      }
+      body {
+        font-family: "Unispace", monospace;
+      }
+    </style>
+  </head>
+  <body>
+    <a
+      href="https://www.google.com"
+      class="custom-button-link"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <div class="custom-button">
+        <div class="button-background"></div>
+        <div class="button-decoration"></div>
+        <div class="button-content">
+          <i class="fas fa-folder"></i>
+          <div class="button-text-container">
+            <span class="button-text">FOLDER</span>
+            <span class="button-subtext">FULL ZERO</span>
+          </div>
+        </div>
+      </div>
+    </a>
+
+    <div class="date-widget">
+      <div class="decorative-bars"></div>
+      <div class="calendar-icon"></div>
+      <div class="date-text">
+        <span class="day-name"></span>
+        <span class="full-date"></span>
+      </div>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const dayNameElement = document.querySelector(".day-name");
+        const fullDateElement = document.querySelector(".full-date");
+
+        function updateDate() {
+          const now = new Date();
+          const दिनOptions = { weekday: "long" }; // 'long' para el nombre completo del día
+          const तारीखOptions = {
+            day: "numeric",
+            month: "long", // 'long' para el nombre completo del mes
+            year: "numeric",
+          };
+
+          // Obtener el nombre del día en español y convertir a mayúsculas
+          let dayName = now.toLocaleDateString("es-ES", दिनOptions);
+          dayNameElement.textContent = dayName.toUpperCase();
+
+          // Formatear la fecha como "DD, Mes AAAA"
+          const day = now.getDate();
+          const month = now.toLocaleDateString("es-ES", { month: "long" });
+          const year = now.getFullYear();
+
+          // Capitalizar la primera letra del mes
+          const capitalizedMonth =
+            month.charAt(0).toUpperCase() + month.slice(1);
+
+          fullDateElement.textContent = `${day}, ${capitalizedMonth} ${year}`;
+        }
+
+        updateDate(); // Llama a la función una vez para establecer la fecha inicial
+        // Opcional: Actualizar la fecha cada cierto tiempo (ej. cada minuto)
+        // setInterval(updateDate, 60000);
+      });
+    </script>
+  </body>
+</html>

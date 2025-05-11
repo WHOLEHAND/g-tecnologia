@@ -1,0 +1,389 @@
+/* Fuente general */
+body {
+  font-family: 'Unispace', monospace;
+  margin: 0;
+  padding: 0;
+  background-color: #000;
+  color:#ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; /* Altura completa de la pantalla */
+}
+
+/* Contenedor principal con padding y flexbox */
+.container-border-box-1 {
+  position: relative;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 90%;
+  max-width: 1200px;
+  box-sizing: border-box;
+}
+
+/* Segundo contenedor interno */
+.container-border-box-2 {
+  position: relative;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Caja que contiene todo el contenido visible */
+.box-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Cabecera con logo y fecha */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Calendario */
+.date-widget {
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  padding: 10px;
+}
+
+.decorative-bars {
+  width: 10px;
+  height: 38px;
+  background-image: url('../svg/bars.svg');
+  background-repeat: no-repeat;
+  background-size: contain;
+  margin-right: 5px;
+}
+
+.calendar-icon {
+  width: 24px;
+  height: 24px;
+  background-image: url('../svg/date-icon.svg');
+  background-repeat: no-repeat;
+  background-size: contain;
+  margin-right: 5px;
+}
+
+.date-text {
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.day-name {
+  font-size: 1rem; 
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-bottom: 2px;
+}
+
+.full-date {
+  font-size: 0.5rem;
+}
+
+/* Logo alineado y redimensionado */
+.logo img {
+  border: none;
+  outline: none;
+  box-shadow: none;
+  background: transparent;
+  stroke: none;
+  fill: currentColor;
+  display: block;
+  max-height: 60px;
+}
+
+.app-brand img {
+  max-height: 35px;
+}
+
+.app-brand {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Contenedor principal de los paneles */
+.main-content {
+  display: flex;
+  gap: 20px;
+}
+
+/* Panel izquierdo: listado de apps */
+.left-panel {
+  width: 25%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 0px;
+  padding-top: 15px;
+  padding-bottom: 0;
+
+  /* Propiedades de border-image */
+  border-style: solid;
+  border-width: 30px;
+  border-image-source: url('../svg/windows-section.svg');
+  border-image-slice: 60;
+  background-color: transparent;
+}
+
+/* Panel derecho: ventana de contenido */
+.right-panel {
+  flex: 1;
+  border: 2px solid #ffffff;
+  padding: 15px;
+}
+
+/* Estilo título de la sección APPS */
+.app-name-section {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translate(30px, 105px);
+  font-size: 0.75rem;
+  font-weight: bold;
+  color: #ffffff;
+  z-index: 2;
+  -webkit-transform: translate(30px, 105px);
+  -moz-transform: translate(30px, 105px);
+  -ms-transform: translate(30px, 105px);
+  -o-transform: translate(30px, 105px);
+}
+
+/* Estilo de caja de app */
+.app-box {
+  padding-top: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-bottom: 0;
+  text-align: justify;
+}
+
+.left-panel hr {
+  height: 1px;
+  background-color: #ffffff;
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Botón OPEN */
+.open-btn {
+  background-color: transparent;
+  font-weight: bold;
+  color: #ffffff;
+  border: 1.5px solid #ffffff;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+/* Botones inferiores */
+.footer-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
+/* BOTONES DEL PIE */
+.custom-button-link {
+  text-decoration: none;
+  display: inline-block;
+}
+
+.custom-button {
+  position: relative;
+  width: 121.2px;
+  height: 37.2px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  overflow: hidden;
+}
+
+.button-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("../svg/button.svg");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: 0;
+}
+
+.button-decoration {
+  position: absolute;
+  top: 5px; /* Lo movemos 5px hacia abajo desde el borde superior del .custom-button */
+  right: 5px; /* Lo movemos 5px hacia la izquierda desde el borde derecho del .custom-button */
+  width: calc(
+    20% - 5px
+  ); /* Ajustamos el ancho si queremos que el tamaño visual de las líneas se mantenga similar, restando el offset */
+  height: calc(30% - 5px); /* Ajustamos la altura, restando el offset */
+  background-image: url("../svg/sloping-lines.svg");
+  background-repeat: no-repeat;
+  background-position: top right;
+  background-size: contain;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.button-content {
+  position: relative; /* Para que z-index funcione correctamente sobre el fondo */
+  z-index: 2;
+  display: flex; /* Para alinear icono y texto horizontalmente */
+  align-items: center; /* Para centrar verticalmente el icono y el bloque de texto */
+  width: 100%; /* Ocupa todo el espacio del custom-button */
+  height: 100%; /* Ocupa todo el espacio del custom-button */
+  padding-left: 10px; /* Añade padding horizontal para espaciar de los bordes */
+  box-sizing: border-box; /* Para que el padding no aumente el tamaño total */
+}
+
+.button-content i {
+  font-size: 1rem;
+  color: #ffffff;
+  margin-right: 5px; /* Espacio entre el icono y el texto */
+}
+
+.button-text-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.button-text {
+  font-size: 0.563rem;
+  font-weight: bold;
+  color: #00d9ff;
+  letter-spacing: 1px;
+  line-height: 1.1;
+}
+
+.button-subtext {
+  font-size: 0.5rem;
+  color: #cccccc;
+  letter-spacing: 1px;
+  line-height: 1;
+}
+
+.custom-button {
+  transition: transform 0.15s ease;
+  will-change: transform;
+  -webkit-transition: transform 0.15s ease;
+  -moz-transition: transform 0.15s ease;
+  -ms-transition: transform 0.15s ease;
+  -o-transition: transform 0.15s ease;
+}
+
+.custom-button:hover {
+  transform: scale(1.02);
+}
+
+.custom-button:active {
+  transform: scale(0.98);
+}
+
+/* Efecto parpadeo digital al hacer clic: */
+@keyframes clickBlink {
+  0% {
+    filter: brightness(1);
+  }
+  25% {
+    filter: brightness(2);
+  }
+  50% {
+    filter: brightness(0.8);
+  }
+  75% {
+    filter: brightness(1.5);
+  }
+  100% {
+    filter: brightness(1);
+  }
+}
+
+.custom-button:active .button-content {
+  animation: clickBlink 0.25s ease;
+}
+
+/* Pie de página centrado */
+.footer-author {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 0.8rem;
+  opacity: 0.8;
+  margin-bottom: 0;
+}
+
+/* Esquinas SVG decorativas */
+.corner-svg {
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  background-image: url('../svg/cube.svg');
+  background-size: cover;
+}
+
+.corner-2-svg {
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  background-image: url('../svg/cube-cut.svg');
+  background-size: cover;
+}
+
+/* Esquina superior izquierda */
+.top-left {
+  top: 0;
+  left: 0;
+  transform: rotate(0deg);
+}
+
+/* Esquina superior derecha */
+.top-right {
+  top: 0;
+  right: 0;
+  transform: rotate(90deg);
+}
+
+/* Esquina inferior izquierda */
+.bottom-left {
+  bottom: 0;
+  left: 0;
+  transform: rotate(270deg);
+}
+
+/* Esquina inferior derecha */
+.bottom-right {
+  bottom: 0;
+  right: 0;
+  transform: rotate(180deg);
+}
+
+/* Fondo de la Página */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('../img/servers.jpg');
+  background-size: cover;
+  background-position: center;
+  opacity: 0.75;
+  z-index: -1;
+}
