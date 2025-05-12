@@ -140,6 +140,56 @@ body {
   flex: 1;
   border: 2px solid #ffffff;
   padding: 15px;
+  padding-top: 5px;
+}
+
+/* Estilos de Texto para Contenido Dinámico */
+.content-window h4 a{
+  font-style: italic;
+  color: #00d9ff;
+}
+
+.content-window h2 {
+  font-weight: bold;
+  color: #00d9ff;
+  font-size: 1.25rem;
+}
+
+.content-window h4 {
+  font-weight: normal;
+  text-align: justify;
+  color: #ffffff;
+  font-size: 1rem;
+}
+
+.content-window li {
+  font-style: italic;
+  text-align: justify;
+  font-size: 0.875rem;
+  color: #cccccc;
+}
+
+#dynamic-text {
+  max-height: 355px; /* o el valor que prefieras */
+  overflow-y: auto;
+  padding-right: 10px; /* opcional, evita que el scroll tape el texto */
+}
+
+#dynamic-text::-webkit-scrollbar {
+  width: 6px;
+}
+
+#dynamic-text::-webkit-scrollbar-thumb {
+  background-color: #00d9ff;
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+}
+
+#dynamic-text::-webkit-scrollbar-track {
+  background-color: #111;
 }
 
 /* Estilo título de la sección APPS */
@@ -276,44 +326,28 @@ body {
   line-height: 1;
 }
 
+/* Animación del Botón */
 .custom-button {
-  transition: transform 0.15s ease;
-  will-change: transform;
-  -webkit-transition: transform 0.15s ease;
-  -moz-transition: transform 0.15s ease;
-  -ms-transition: transform 0.15s ease;
-  -o-transition: transform 0.15s ease;
+  transition: box-shadow 0.2s ease, filter 0.2s ease;
+  filter: brightness(1);
+  backface-visibility: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 .custom-button:hover {
-  transform: scale(1.02);
+  filter: brightness(1.2); /* o usa box-shadow */
+  box-shadow: 0 0 6px rgba(0, 174, 255, 0.5);
 }
 
 .custom-button:active {
-  transform: scale(0.98);
+  filter: brightness(0.85);
+  box-shadow: 0 0 4px rgba(0, 174, 255, 0.3);
 }
 
-/* Efecto parpadeo digital al hacer clic: */
-@keyframes clickBlink {
-  0% {
-    filter: brightness(1);
-  }
-  25% {
-    filter: brightness(2);
-  }
-  50% {
-    filter: brightness(0.8);
-  }
-  75% {
-    filter: brightness(1.5);
-  }
-  100% {
-    filter: brightness(1);
-  }
-}
-
-.custom-button:active .button-content {
-  animation: clickBlink 0.25s ease;
+.custom-button-link.active .custom-button{
+  filter: brightness(1.2);
+  box-shadow: 0 0 6px rgba(0, 174, 255, 0.5);
 }
 
 /* Pie de página centrado */

@@ -109,43 +109,48 @@ body {
 }
 
 .custom-button {
-  transition: transform 0.15s ease;
-  will-change: transform;
-  -webkit-transition: transform 0.15s ease;
-  -moz-transition: transform 0.15s ease;
-  -ms-transition: transform 0.15s ease;
-  -o-transition: transform 0.15s ease;
+  position: relative;
+  clip-path: polygon(0 0, 100% 0, 100% 85%, 85% 100%, 0 100%);
+  transition: filter 0.2s ease;
+  filter: brightness(1);
+  backface-visibility: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow: visible; /* IMPORTANTE para que el glow sobresalga */
+  z-index: 1;
+}
+
+.custom-button::before {
+  content: '';
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  width: calc(100% + 20px);
+  height: calc(100% + 20px);
+  background: rgba(0, 174, 255, 0.5);
+  clip-path: polygon(0 0, 100% 0, 100% 85%, 85% 100%, 0 100%);
+  filter: blur(12px);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.custom-button:hover::before {
+  opacity: 1;
+}
+
+.custom-button:active::before {
+  opacity: 0.6;
+  filter: blur(8px);
 }
 
 .custom-button:hover {
-  transform: scale(1.02);
+  filter: brightness(1.2);
 }
 
 .custom-button:active {
-  transform: scale(0.98);
-}
-
-/* Efecto parpadeo digital al hacer clic: */
-@keyframes clickBlink {
-  0% {
-    filter: brightness(1);
-  }
-  25% {
-    filter: brightness(2);
-  }
-  50% {
-    filter: brightness(0.8);
-  }
-  75% {
-    filter: brightness(1.5);
-  }
-  100% {
-    filter: brightness(1);
-  }
-}
-
-.custom-button:active .button-content {
-  animation: clickBlink 0.25s ease;
+  filter: brightness(0.85);
 }
 
 /* Calendario */
