@@ -112,12 +112,11 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     ],
     organigrama: [
-      { type: "h2", text: "ORGANIGRAMA INTERNO DEL DEPARTAMENTO" },
-      { type: "h4", text: "El organigrama del departamento está compuesto por el Gerente, el Coordinador Analista y los Técnicos Auxiliares / Soporte Administrativo enfocados en diferentes áreas." },
+      { type: "h2", text: "ORGANIGRAMA DE LA ASOCIACIÓN CIVIL BIBLIOTECAS VIRTUALES DE ARAGUA" },
       {
         type: "img",
-        src: "organigrama.jpg", // Debo reemplar acá con el organigrama cuando lo tenga.
-        alt: "Organigrama del departamento"
+        src: "assets/img/organigrama-2014.jpg", // Debo reemplar acá con el organigrama cuando lo tenga.
+        alt: "Organigrama de la Asociación Civil Bibliotecas Virtuales de Aragua vigente 2014"
       }
     ],
     contacto: [
@@ -200,4 +199,42 @@ document.addEventListener("DOMContentLoaded", () => {
   renderContent(initialKey);
   const initialButton = document.querySelector(`[data-content="${initialKey}"]`);
   if (initialButton) initialButton.classList.add("active");
+});
+
+// Funciones del comportamiento de descarga del Organigrama
+document.addEventListener("DOMContentLoaded", () => {
+  const observer = new MutationObserver((mutationsList) => {
+    for (const mutation of mutationsList) {
+      if (mutation.type === "childList") {
+        mutation.addedNodes.forEach(node => {
+          // Asegura que sea una imagen y sea la del organigrama
+          if (
+            node.tagName === "IMG" &&
+            node.src.includes("organigrama-2014.jpg")
+          ) {
+            // Asegura que no se registre el evento múltiples veces
+            node.style.cursor = "pointer";
+            node.title = "Haz clic para descargar el archivo de alta calidad";
+            node.addEventListener("click", () => {
+              const link = document.createElement("a");
+              link.href = "assets/img/Organigrama-BBVVA-2014.jpg"; // Ruta de la imagen a descargar
+              link.download = "Organigrama-BBVVA-2014.jpg"; // Nombre sugerido para la descarga
+              document.body.appendChild(link);
+              link.click();
+              document.body.removeChild(link);
+            });
+          }
+        });
+      }
+    }
+  });
+
+  const targetNode = document.getElementById("dynamic-text");
+
+  if (targetNode) {
+    observer.observe(targetNode, {
+      childList: true,
+      subtree: true,
+    });
+  }
 });
