@@ -9,7 +9,7 @@
     <!-- Author -->
     <link rel="shortcut icon" href="assets/favicons/favicon-16x16.png">
     <meta name="description" content="Página oficial del Departamento Gerencia de Tecnología de la Asoción Civil Bibliotecas Virtuales de Aragua">
-    <meta name="author" content="Jesús Vielma @wholehand">
+    <meta name="author" content="Samuel Perez @SamPerez2307">
 
     <title>GERENCIA DE TECNOLOGÍA | A.C BBVVA</title>
 
@@ -30,6 +30,7 @@
     </style>
   </head>
   <body>
+
     <div class="container-border-box-1">
       <!-- Esquinas decorativas -->
       <div class="corner-svg top-left"></div>
@@ -47,12 +48,18 @@
         <div class="box-container">
           <!-- Encabezado -->
           <div class="header">
+            <div class="menubarra" id="menubarra">
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
             <div class="date-widget">
               <div class="decorative-bars"></div>
               <div class="calendar-icon"></div>
               <div class="date-text">
                 <span class="day-name"></span>
                 <span class="full-date"></span>
+                <span class="time-text" id="reloj">00:00</span>
               </div>
             </div>
             <div class="logo">
@@ -63,187 +70,217 @@
             </div>
           </div>
 
-          <!-- Contenido principal -->
-          <div class="main-content">
+<!-- Contenedor Principal (Flex Container) -->
+<div class="main-content">
+
+  <!-- Panel Izquierdo (Lista de Botones) -->
+  <div class="left-panel" id="leftpanel">
+    <div class="lista-buttons">
+
+      <!-- Descripción -->
+      <a href="#" class="custom-button-link" data-content="descripcion">
+        <div class="custom-button active">
+          <div class="button-background"></div>
+          <div class="button-decoration"></div>
+          <div class="button-content">
+            <i class="fa-solid fa-circle-question"></i>
+            <div class="button-text-container">
+              <span class="button-text">DESCRIPCIÓN</span>
+              <span class="button-subtext">G-TECNOLOGÍA</span>
+            </div>
+          </div>
+        </div>
+      </a>
+
+      <!-- Misión -->
+      <a href="#" class="custom-button-link" data-content="mision">
+        <div class="custom-button">
+          <div class="button-background"></div>
+          <div class="button-decoration"></div>
+          <div class="button-content">
+            <i class="fa-solid fa-bullseye"></i>
+            <div class="button-text-container">
+              <span class="button-text">MISIÓN</span>
+              <span class="button-subtext">A.C.BBVVA</span>
+            </div>
+          </div>
+        </div>
+      </a>
+
+      <!-- Visión -->
+      <a href="#" class="custom-button-link" data-content="vision">
+        <div class="custom-button">
+          <div class="button-background"></div>
+          <div class="button-decoration"></div>
+          <div class="button-content">
+            <i class="fa-solid fa-eye"></i>
+            <div class="button-text-container">
+              <span class="button-text">VISIÓN</span>
+              <span class="button-subtext">A.C.BBVVA</span>
+            </div>
+          </div>
+        </div>
+      </a>
+
+      <!-- Objetivos -->
+      <a href="#" class="custom-button-link" data-content="objetivos">
+        <div class="custom-button">
+          <div class="button-background"></div>
+          <div class="button-decoration"></div>
+          <div class="button-content">
+            <i class="fa-solid fa-list-check"></i>
+            <div class="button-text-container">
+              <span class="button-text">OBJETIVOS</span>
+              <span class="button-subtext">A.C.BBVVA</span>
+            </div>
+          </div>
+        </div>
+      </a>
+
+      <!-- Funciones -->
+      <a href="#" class="custom-button-link" data-content="funciones">
+        <div class="custom-button">
+          <div class="button-background"></div>
+          <div class="button-decoration"></div>
+          <div class="button-content">
+            <i class="fa-solid fa-diagram-project"></i>
+            <div class="button-text-container">
+              <span class="button-text">FUNCIONES</span>
+              <span class="button-subtext">G-TECNOLOGÍA</span>
+            </div>
+          </div>
+        </div>
+      </a>
+
+      <!-- Organigrama -->
+      <a href="#" class="custom-button-link" data-content="organigrama">
+        <div class="custom-button">
+          <div class="button-background"></div>
+          <div class="button-decoration"></div>
+          <div class="button-content">
+            <i class="fa-solid fa-users-viewfinder"></i>
+            <div class="button-text-container">
+              <span class="button-text">ORGANIGRAMA</span>
+              <span class="button-subtext">A.C.BBVVA</span>
+            </div>
+          </div>
+        </div>
+      </a>
+
+      <!-- Contacto -->
+      <a href="#" class="custom-button-link" data-content="contacto">
+        <div class="custom-button">
+          <div class="button-background"></div>
+          <div class="button-decoration"></div>
+          <div class="button-content">
+            <i class="fa-solid fa-envelope"></i>
+            <div class="button-text-container">
+              <span class="button-text">CONTACTO</span>
+              <span class="button-subtext">G-TECNOLOGÍA</span>
+            </div>
+          </div>
+        </div>
+      </a>
+
+      <!-- Historia -->
+      <a href="#" class="custom-button-link" data-content="Historia">
+        <div class="custom-button">
+          <div class="button-background"></div>
+          <div class="button-decoration"></div>
+          <div class="button-content">
+            <i class="fa-solid fa-book-bookmark"></i>
+            <div class="button-text-container">
+              <span class="button-text">RESEÑAS HISTÓRICAS</span>
+              <span class="button-subtext">BVA historia</span>
+            </div>
+          </div>
+        </div>
+      </a>
+
+    </div>
+  </div>
+
+  <!-- Panel Derecho (Texto Dinámico) -->
+  <div class="right-panel">
+    <div class="content-window">
+      <div id="dynamic-text"></div>
+    </div>
+  </div>
+  <div class="menu-overlay" id="menuOverlay"></div>
+</div>
+
+<div class="app-name-section">APLICACIONES</div>
+
             <!-- Panel izquierdo -->
-            <div class="left-panel">
-              <div class="app-name-section">APLICACIONES</div>
+            <div class="left-panel-carrusel">
               <div class="app-box">
                 <div class="app-brand">
-                  <img src="assets/img/ARKOVA-logo-WT.png" alt="ARKOVA" />
-                  <button class="open-btn" id="open-arkova">ABRIR ↗</button>
+                  <!-- Enlace específico para ARKOVA -->
+                  <a href="http://gtecnologia.bva.org.ve/arkova" target="_blank">
+                    <img src="assets/img/ARKOVA-logo-WT.png" alt="ARKOVA" />
+                  </a>
                 </div>
                 <p>
-                  Archivero de respaldo digital para los documentos de tipo
-                  Reporte Técnico y Movimiento de Bienes del departamento.
+                  Archivero de respaldo digital.
                 </p>
                 <hr />
               </div>
               <div class="app-box">
                 <div class="app-brand">
-                  <img src="assets/img/InvenTrack-logo-WT.png" alt="InvenTrack"/>
-                  <button class="open-btn" id="open-inventrack">ABRIR ↗</button>
+                  <!-- Enlace específico para InvenTrack -->
+                  <a href="http://gtecnologia.bva.org.ve/invtrack" target="_blank">
+                    <img src="assets/img/InvenTrack-logo-WT.png" alt="InvenTrack"/>
+                  </a>
                 </div>
                 <p>
-                  Registro y control del Inventario de Bienes Muebles del
+                  Registro y control del Inventario de Bienes  del
                   departamento.
                 </p>
+                <hr />
+              </div>
+
+              <div class="app-box">
+                <div class="app-brand">
+                  <!-- Enlace específico para Manual Basic -->
+                  <a href="http://gtecnologia.bva.org.ve/manual_basic/" target="_blank">
+                    <img src="assets/img/manualbasic.png" alt="Manual Basic"/>
+                  </a>
+                </div>
+                <p>
+                  Plataforma desarrollada para  el soporte técnico 
+                </p>
+                <hr />
+              </div>
+
+              <div class="app-box">
+                <div class="app-brand">
+                  <!-- Enlace específico para Gestión de Soporte -->
+                  <a href="url-de-gestion-soporte.html" target="_blank">
+                    <img src="assets/img/manualbasic.png" alt="Sistema de Gestion de soporte"/>
+                  </a>
+                </div>
+                <p>
+                  Sistema de gention para los equipos de soporte
+                </p>
+                <hr />
+              </div>
+
+              <div class="app-box">
+                <div class="app-brand">
+                  <!-- Enlace específico para la Nube -->
+                  <a href="http://cloud.bva.org.ve/" target="_blank">
+                    <img src="assets/img/owncloude.png" alt="NUBE"/>
+                  </a>
+                </div>
+                <p>
+                  almacenamiendo de respaldo en la NUBE
+                </p>
+                <hr />
               </div>
             </div>
-
-            <!-- Panel derecho -->
-            <div class="right-panel">
-              <div class="content-window">
-                <div id="dynamic-text"></div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Botones inferiores -->
-          <div class="footer-buttons">
-            <a
-              href="#"
-              class="custom-button-link"
-              data-content="descripcion"
-            >
-              <div class="custom-button active">
-                <div class="button-background"></div>
-                <div class="button-decoration"></div>
-                <div class="button-content">
-                  <i class="fa-solid fa-circle-question"></i>
-                  <div class="button-text-container">
-                    <span class="button-text">DESCRIPCIÓN</span>
-                    <span class="button-subtext">G-TECNOLOGÍA</span>
-                  </div>
-                </div>
-              </div>
-            </a>
-            <a
-              href="#"
-              class="custom-button-link"
-              data-content="mision"
-            >
-              <div class="custom-button">
-                <div class="button-background"></div>
-                <div class="button-decoration"></div>
-                <div class="button-content">
-                  <i class="fa-solid fa-bullseye"></i>
-                  <div class="button-text-container">
-                    <span class="button-text">MISIÓN</span>
-                    <span class="button-subtext">A.C.BBVVA</span>
-                  </div>
-                </div>
-              </div>
-            </a>
-            <a
-              href="#"
-              class="custom-button-link"
-              data-content="vision"
-            >
-              <div class="custom-button">
-                <div class="button-background"></div>
-                <div class="button-decoration"></div>
-                <div class="button-content">
-                  <i class="fa-solid fa-eye"></i>
-                  <div class="button-text-container">
-                    <span class="button-text">VISIÓN</span>
-                    <span class="button-subtext">A.C.BBVVA</span>
-                  </div>
-                </div>
-              </div>
-            </a>
-            <a
-              href="#"
-              class="custom-button-link"
-              data-content="objetivos"
-            >
-              <div class="custom-button">
-                <div class="button-background"></div>
-                <div class="button-decoration"></div>
-                <div class="button-content">
-                  <i class="fa-solid fa-list-check"></i>
-                  <div class="button-text-container">
-                    <span class="button-text">OBJETIVOS</span>
-                    <span class="button-subtext">A.C.BBVVA</span>
-                  </div>
-                </div>
-              </div>
-            </a>
-            <a
-              href="#"
-              class="custom-button-link"
-              data-content="funciones"
-            >
-              <div class="custom-button">
-                <div class="button-background"></div>
-                <div class="button-decoration"></div>
-                <div class="button-content">
-                  <i class="fa-solid fa-diagram-project"></i>
-                  <div class="button-text-container">
-                    <span class="button-text">FUNCIONES</span>
-                    <span class="button-subtext">G-TECNOLOGÍA</span>
-                  </div>
-                </div>
-              </div>
-            </a>
-            <a
-              href="#"
-              class="custom-button-link"
-              data-content="organigrama"
-            >
-              <div class="custom-button">
-                <div class="button-background"></div>
-                <div class="button-decoration"></div>
-                <div class="button-content">
-                  <i class="fa-solid fa-users-viewfinder"></i>
-                  <div class="button-text-container">
-                    <span class="button-text">ORGANIGRAMA</span>
-                    <span class="button-subtext">A.C.BBVVA</span>
-                  </div>
-                </div>
-              </div>
-            </a>
-            <a
-              href="#"
-              class="custom-button-link"
-              data-content="contacto"
-            >
-              <div class="custom-button">
-                <div class="button-background"></div>
-                <div class="button-decoration"></div>
-                <div class="button-content">
-                  <i class="fa-solid fa-envelope"></i>
-                  <div class="button-text-container">
-                    <span class="button-text">CONTACTO</span>
-                    <span class="button-subtext">G-TECNOLOGÍA</span>
-                  </div>
-                </div>
-              </div>
-            </a>
-            <a
-              href="http://cloud.bva.org.ve/"
-              class="custom-button-link"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <div class="custom-button">
-                <div class="button-background"></div>
-                <div class="button-decoration"></div>
-                <div class="button-content">
-                  <i class="fa-solid fa-cloud"></i>
-                  <div class="button-text-container">
-                    <span class="button-text">NUBE</span>
-                    <span class="button-subtext">RESPALDO</span>
-                  </div>
-                </div>
-              </div>
-            </a>
-          </div>
-        </div>
-      </div>
 
       <!-- Pie de autor centrado -->
-      <p class="footer-author">© 2025 A.C. BBVVA - DEV FOR WHOLEHAND</p>
+      <p class="footer-author">© 2026 A.C. BBVVA - DEV FOR @SamPerez2307</p>
     </div>
 
     <script src="assets/js/functions-general.js"></script>
